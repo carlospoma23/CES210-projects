@@ -41,9 +41,20 @@ class Program
         return square;
     }
 
+     static int SquareNumber1(int number)
+    {
+        int s2 = number * number;
+        return s2;
+        
+    }
+
+
+
+
     static void DisplayResult(string name, int square)
     {
         Console.WriteLine($"{name}, the square of your number is {square}");
+        Console.WriteLine("Hello");
     }
 
 
