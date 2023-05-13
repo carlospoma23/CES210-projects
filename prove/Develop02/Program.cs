@@ -18,20 +18,21 @@ class Program
 
         Journal journal = new Journal();
         //showing the main Menu
-
+        Console.WriteLine("******************************");
         Console.WriteLine("WELCOME TO THE JOURNAL PROGRAM");
-        Console.WriteLine("______________________________");
+        Console.WriteLine("******************************");
         Boolean _exit = false;
         int _userChoice;
 
         while (_exit == false)
         {
-            Console.WriteLine("1. Write new Entry :");
-            Console.WriteLine("2. Display new(s) Entries:");
-            Console.WriteLine("3. Load journal:");
-            Console.WriteLine("4. Save :");
-            Console.WriteLine("5. Quit :");
-
+            Console.WriteLine("Please select an option: ");
+            Console.WriteLine("1. (Entry) Write new Entry :");
+            Console.WriteLine("2. (Entry) Display new(s) Entry(ies):");
+            Console.WriteLine("3. (Journal) Load the Journal:");
+            Console.WriteLine("4. (Journal) Change Journal's name :");
+            Console.WriteLine("5. (Program) End Program :");
+            Console.WriteLine("______________________________");
             Console.Write("What do you like to do? ");
             _userChoice = Int32.Parse(Console.ReadLine());
 
@@ -46,14 +47,14 @@ class Program
                     _exit = false;
                     break;
                 case 2:
-                    journal.DiplayJournal();
+                    journal.DiplayNewEntries();
                     _exit = false;
                     break;
-
                 case 3:
                     journal.LoadJournalFromFile();
                     break;
                 case 4:
+                    journal.ChangeJournalName();
                     break;
                 case 5:
                     _exit = true;

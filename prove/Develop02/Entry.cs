@@ -18,12 +18,12 @@ public class Entry
 
     public string ReturnEntry()
     {
-        return $"Date: {_dateEntry.ToString("d")} - Prompt {_promptEntry} \n {_textEntry}   ";
+        return $"Date: {_dateEntry.ToString("d")} - Prompt :{_promptEntry} \n {_textEntry}   ";
     }
 
     public String SaveEntry()
     {
-        return $"{_dateEntry.ToString("d")} | Prompt {_promptEntry} | {_textEntry}";
+        return $"{_dateEntry.ToString("d")} | Prompt : {_promptEntry} | {_textEntry}";
     }
 
 

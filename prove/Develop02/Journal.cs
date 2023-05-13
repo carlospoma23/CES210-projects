@@ -2,10 +2,10 @@ using System.IO;
 public class Journal
 {
 
-    public string _journalName = "journal.txt";
+    public string _journalName = "Journal.txt";
     public List<Entry> _entries = new List<Entry>();
 
-    public void DiplayJournal()
+    public void DiplayNewEntries()
     {
         foreach (Entry entry in _entries)
         {
@@ -16,25 +16,59 @@ public class Journal
 
     public void SavingEntryToFile(Entry newEntry)
     {
+        CreateJournalFile();
+
         using (StreamWriter outputFile = File.AppendText(_journalName))
         {
             outputFile.WriteLine($"{newEntry.SaveEntry()}");
         }
     }
 
+    public void CreateJournalFile()
+    {
+        //Console.WriteLine($"Existe el archivo? {System.IO.File.Exists(_journalName)}");
+        if (!File.Exists(_journalName))
+        {
+            Console.WriteLine("Your file doesn't exist. I will create the file automatically:");
+            File.CreateText(_journalName);
+            Console.WriteLine($"The file {_journalName} was created successfully");
+        }
 
+    }
+
+    public void ChangeJournalName()
+    {
+        Console.Write("Write the new Journal's name: ");
+        String newName = Console.ReadLine();
+        _journalName = newName;
+
+
+    }
     public void LoadJournalFromFile()
     {
-        string[] lines = System.IO.File.ReadAllLines(_journalName);
-
-        foreach (String line in lines)
+        if (!File.Exists(_journalName))
         {
-            String[] parts = line.Split("|");
-            String date = parts[0];
-            String question = parts[1];
-            String answer = parts[2];
+            CreateJournalFile();
+        }
+        string[] lines = System.IO.File.ReadAllLines(_journalName);
+        //String text=System.IO.File.ReadAllText(_journalName);
 
-            Console.WriteLine($"{date} {question} \n {answer}");
+        if (lines.Length == 0)
+        {
+            Console.WriteLine($"The file {_journalName} is empty, Please enter a Entry");
+        }
+        else
+        {
+            foreach (String line in lines)
+            {
+                String[] parts = line.Split("|");
+                String date = parts[0];
+                String question = parts[1];
+                String answer = parts[2];
+
+                Console.WriteLine($"{date} {question} \n {answer}");
+
+            }
 
         }
     }
