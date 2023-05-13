@@ -16,11 +16,18 @@ public class Journal
 
     public void SavingEntryToFile(Entry newEntry)
     {
-        CreateJournalFile();
-
-        using (StreamWriter outputFile = File.AppendText(_journalName))
+        if (!File.Exists(_journalName))
         {
-            outputFile.WriteLine($"{newEntry.SaveEntry()}");
+            Console.WriteLine("Please Create the Journal File");
+        }
+        else
+        {
+
+            using (StreamWriter outputFile = File.AppendText(_journalName))
+            {
+                outputFile.WriteLine($"{newEntry.SaveEntry()}");
+            }
+
         }
     }
 
@@ -33,16 +40,10 @@ public class Journal
             File.CreateText(_journalName);
             Console.WriteLine($"The file {_journalName} was created successfully");
         }
-
-    }
-
-    public void ChangeJournalName()
-    {
-        Console.Write("Write the new Journal's name: ");
-        String newName = Console.ReadLine();
-        _journalName = newName;
-
-
+        else
+        {
+            Console.WriteLine($"The file  already exists: the name is: {_journalName}");
+        }
     }
     public void LoadJournalFromFile()
     {
