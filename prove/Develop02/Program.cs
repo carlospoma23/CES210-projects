@@ -14,8 +14,9 @@ class Program
         promtRandom._promtQuestionRandom.Add("What was the strongest emotion I felt today?");
         promtRandom._promtQuestionRandom.Add("If I had one thing I could do over today, what would it be?");
 
-        Journal journal = new Journal();
 
+
+        Journal journal = new Journal();
         //showing the main Menu
 
         Console.WriteLine("WELCOME TO THE JOURNAL PROGRAM");
@@ -25,9 +26,9 @@ class Program
 
         while (_exit == false)
         {
-            Console.WriteLine("1. Write :");
-            Console.WriteLine("2. Display :");
-            Console.WriteLine("3. Load :");
+            Console.WriteLine("1. Write new Entry :");
+            Console.WriteLine("2. Display new(s) Entries:");
+            Console.WriteLine("3. Load journal:");
             Console.WriteLine("4. Save :");
             Console.WriteLine("5. Quit :");
 
@@ -37,26 +38,22 @@ class Program
             switch (_userChoice)
             {
                 case 1:
-                    promtRandom.DisplayRandomQuestion();
-                    Console.Write("> :");
+                    string prompt = promtRandom.ReturnRamdomQuestion();
                     Entry myEntry = new Entry();
-                    myEntry.CreateEntry();
+                    myEntry.CreateEntry(prompt);
                     journal._entries.Add(myEntry);
                     journal.SavingEntryToFile(myEntry);
-
                     _exit = false;
                     break;
                 case 2:
-
                     journal.DiplayJournal();
                     _exit = false;
                     break;
 
                 case 3:
-                    Console.WriteLine($"Option : {_userChoice}");
+                    journal.LoadJournalFromFile();
                     break;
                 case 4:
-                    Console.WriteLine($"Option : {_userChoice}");
                     break;
                 case 5:
                     _exit = true;

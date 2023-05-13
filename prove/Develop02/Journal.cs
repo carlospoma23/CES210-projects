@@ -2,10 +2,9 @@ using System.IO;
 public class Journal
 {
 
-    public string _journalName = "";
+    public string _journalName = "journal.txt";
     public List<Entry> _entries = new List<Entry>();
 
-    Entry entry = new Entry();
     public void DiplayJournal()
     {
         foreach (Entry entry in _entries)
@@ -15,23 +14,29 @@ public class Journal
 
     }
 
-
-
-
-    public void SavingEntryToFile(Entry myentry)
+    public void SavingEntryToFile(Entry newEntry)
     {
-        String filename = "Journal.txt";
-        using (StreamWriter outputFile = File.AppendText(filename))
+        using (StreamWriter outputFile = File.AppendText(_journalName))
         {
-            outputFile.WriteLine($"{myentry.SaveEntry()}");
+            outputFile.WriteLine($"{newEntry.SaveEntry()}");
         }
     }
 
 
-    public void LoadFromFile()
+    public void LoadJournalFromFile()
     {
+        string[] lines = System.IO.File.ReadAllLines(_journalName);
 
-        Console.Write("abd");
+        foreach (String line in lines)
+        {
+            String[] parts = line.Split("|");
+            String date = parts[0];
+            String question = parts[1];
+            String answer = parts[2];
+
+            Console.WriteLine($"{date} {question} \n {answer}");
+
+        }
     }
 
 }
