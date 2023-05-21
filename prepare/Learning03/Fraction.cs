@@ -5,7 +5,6 @@ public class Fraction
     private int _top;
     private int _bottom;
 
-
     public Fraction()
     {
         _top = 1;
@@ -24,8 +23,6 @@ public class Fraction
         _top = top;
         _bottom = bottom;
     }
-
-
 
 
     public string GetFractionString()
