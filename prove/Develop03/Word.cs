@@ -1,46 +1,19 @@
-using System;
-
 public class Word
 {
-
-    private string _word;
-    private bool _ishiddenWord;
-
-
-    public Word(string word, bool isHide)
-    {
-
-        _word = word;
-        _ishiddenWord = isHide;
-
-    }
+    public string _word;
+    public bool _isHidden;
 
     public Word(string word)
     {
         _word = word;
-        _ishiddenWord = true;
-
+        _isHidden = false;
     }
 
-    public string HideWord()
+    public Word(string word, bool isHidden)
     {
-
-        return null;
+        _word = word;
+        _isHidden = isHidden;
     }
-
-    public string Show()
-    {
-
-        return null;
-    }
-
-    public void IsHiddenWord()
-    {
-
-    }
-
-
-
 
 
 

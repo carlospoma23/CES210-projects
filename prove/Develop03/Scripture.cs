@@ -1,52 +1,62 @@
-using System;
-
 public class Scripture
 {
+    public List<Word> _words = new List<Word>();
+    public Reference _reference;
 
-    private List<Word> _parragraph = new List<Word>();
-
-    private Reference _reference;
-
-
-    public Scripture(Reference reference, string text)
+    public Scripture(string reference, string text)
     {
+        _reference = new Reference(reference);
+        _words = text.Split(' ').Select(word => new Word(word)).ToList();
+    }
 
-        String[] _words = text.Split(' ');
-
-        _parragraph = new List<Word>();
-
-        foreach (string word in _words)
+    public bool IsCompletelyHidden
+    {
+        get
         {
-
-            _parragraph.Add(new Word(word));
+            return _words.All(word => word._isHidden);
         }
 
-        _reference = reference;
-
-        ;
     }
-    public void HideWords()
+    public void HideWords(int count)
     {
-        var random = new Random();
-        int wordCount = _parragraph.Count(w => !w._ishiddenWord);
-        if (wordCount == 0) return;
-        var wordIndex = random.Next(0, wordCount);
-        var wordToHide = _parragraph.Where(w => !w._ishiddenWord).ElementAt(wordIndex);
-        wordToHide.HideWord();
-    }
+        Random random = new Random();
+        List<Word> hiddenWords = new List<Word>();
+        for (int i = 0; i < count; i++)
+        {
+            Word word = _words[random.Next(_words.Count)];
+            while (word._isHidden)
+            {
+                word = _words[random.Next(_words.Count)];
+            }
+            // Hide the word
+            word._isHidden = true;
+            hiddenWords.Add(word);
+            if (IsCompletelyHidden)
+            {
+                break;
+            }
 
-    public string GetRenderedText()
+
+        }
+    }
+    public override string ToString()
     {
-        return $"{_reference}\n\n{string.Join(" ", _parragraph)}";
+        string text = String.Join(" ", _words.Select(word => word._isHidden ? "_____" : word._word));
+        return $"{_reference.ToString()}: {text}";
     }
 
-
-    public bool IsCompletelyHidden()
+    public void CreateScripture()
     {
-        return true;
+        Console.Write("Enter the reference (Book 2:2-5)");
+        Reference RefEnterByUSer = new Reference(Console.ReadLine());
+        _reference = RefEnterByUSer;
+
+        Console.WriteLine("Enter the Scripture's text");
+        string enterUserText = Console.ReadLine();
+
+
 
     }
-
-
 
 }
+
