@@ -15,7 +15,6 @@ public class Scripture
         {
             return _words.All(word => word._isHidden);
         }
-
     }
     public void HideWords(int count)
     {
