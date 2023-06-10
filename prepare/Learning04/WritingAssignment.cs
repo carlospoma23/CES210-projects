@@ -25,7 +25,7 @@ _title=title;
 
 public string GetWritingInformation(){
 
-    return $"{_studentName} - {_topic}\n{_title} by {_studentName}";
+    return $"{_title} by {_studentName}";
 }
 
 

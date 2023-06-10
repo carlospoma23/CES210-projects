@@ -36,7 +36,7 @@ public class MathAssignment : Assignment{
 
     public string GetHomeworkList(){
 
-        return $"{_studentName} -  {_topic} \n{_textbookSection} - {_problems}";
+        return $"Section {_textbookSection} -  Problems {_problems}";
 
     }
 
