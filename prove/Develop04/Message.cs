@@ -19,8 +19,8 @@ _welcomeAssigment=welcomeActivity;
 
 public Message(){
 _welcomeAssigment="Welcome to Mindfulness Program";
-_descriptionAssignment="This program will provides the three activities which help you relaxing";
-_startMessage="Welcome to the ";
+_descriptionAssignment="This program will provides the three activities\nwhich help you relaxing";
+//_startMessage="Welcome to the ";
 }
 
 public Message(string welcomeMessage, string startMessage, string endMessage, string timeMessage){

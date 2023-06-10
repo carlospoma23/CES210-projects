@@ -31,8 +31,8 @@ public class BreathingActivity: Activity{
     }
 
     public BreathingActivity(string name, string description,int duration):base(name,description,duration){
-    _name="Breathing Activity.";
-    _startMessage="Get Ready";
+    //_name="Breathing Activity.";
+    //_startMessage="Get Ready";
 
     }
 
