@@ -1,8 +1,7 @@
 public class BreathingActivity: Activity{
 
     private int _count;
-    private string _startMessage;
-    public string _endMessage;
+    
     public string _breathingMessage;
     public string _breathInMessage;
     public string _breathOutMessage;
@@ -17,12 +16,7 @@ public class BreathingActivity: Activity{
         _count=count;
     }
 
-    public string  GetStartMessage(){
-    return _startMessage;
-    }
-    public void  SetStartMessage(string startMessage){
-        _startMessage=startMessage;
-    }
+   
 
     //Setting constructors
     //first constructor 
@@ -39,7 +33,6 @@ public class BreathingActivity: Activity{
 
     public BreathingActivity(string name, string description,int duration, string startMessage):base(name,description,duration){
 
-    _startMessage="";
 
     }
 

@@ -3,6 +3,8 @@ public class Activity {
     private string _name;
     private string _description;
     private int _duration;
+    private string _startMessage;
+    private string _endMessage;
 
 
     //setting Getters and Setters
@@ -15,7 +17,7 @@ public class Activity {
     public string GetDescription(){
         return _description;
     }
-    public void GetDescription(string description){
+    public void SetDescription(string description){
       _description=description;
     }
 
@@ -25,6 +27,22 @@ public class Activity {
     public void GetDuration(int duration){
       _duration=duration;
     }
+
+     
+    public string  GetStartMessage(){
+        return _startMessage;
+    }
+    public void  SetStartMessage(string startMessage){
+        _startMessage=startMessage;
+    }
+
+    public string  GetEndMessage(){
+        return _endMessage;
+    }
+    public void  SetEndMessage(string endMessage){
+        _endMessage=endMessage;
+    }
+
 
     //Setting Constructors
     public Activity(){
@@ -38,13 +56,15 @@ public class Activity {
 
     public string  DisplayStartingMessage(){
 
-        return "";
+        return $"{_name}\n{_description}";
 
     }
     public string DisplayEndingMessage(){
 
         return "";
     }
+
+
 
     public bool PausinWhileShowingSpinner(){
 
