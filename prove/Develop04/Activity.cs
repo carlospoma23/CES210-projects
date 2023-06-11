@@ -1,4 +1,6 @@
-public class Activity {
+using System;
+public class Activity
+{
 
     private string _name;
     private string _description;
@@ -8,75 +10,93 @@ public class Activity {
 
 
     //setting Getters and Setters
-    public string GetName(){
+    public string GetName()
+    {
         return _name;
     }
-    public void SetName(string name){
-        _name=name;
+    public void SetName(string name)
+    {
+        _name = name;
     }
-    public string GetDescription(){
+
+    public string GetDescription()
+    {
         return _description;
     }
-    public void SetDescription(string description){
-      _description=description;
+    public void SetDescription(string description)
+    {
+        _description = description;
     }
 
-    public int GetDuration(){
+    public int GetDuration()
+    {
         return _duration;
     }
-    public void GetDuration(int duration){
-      _duration=duration;
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
     }
 
-     
-    public string  GetStartMessage(){
+
+    public string GetStartMessage()
+    {
         return _startMessage;
     }
-    public void  SetStartMessage(string startMessage){
-        _startMessage=startMessage;
+    public void SetStartMessage(string startMessage)
+    {
+        _startMessage = startMessage;
     }
 
-    public string  GetEndMessage(){
+    public string GetEndMessage()
+    {
         return _endMessage;
     }
-    public void  SetEndMessage(string endMessage){
-        _endMessage=endMessage;
+    public void SetEndMessage(string endMessage)
+    {
+        _endMessage = endMessage;
     }
 
 
     //Setting Constructors
-    public Activity(){
+
+    public Activity()
+    {
     }
 
-    public Activity(string name , string description, int duration){
-        _name=name;
-        _description=description;
-        _duration=duration;
+    public Activity(string name, string description, int duration)
+    {
+        _name = name;
+        _description = description;
+        _duration = duration;
     }
 
-    public string  DisplayStartingMessage(){
+    public string DisplayStartingMessage()
+    {
 
-        return $"{_name}\n{_description}";
+        return $"{_name}\n{_description} {_duration}";
 
     }
-    public string DisplayEndingMessage(){
+    public string DisplayEndingMessage()
+    {
 
         return "";
     }
 
 
 
-    public bool PausinWhileShowingSpinner(){
+    public bool PausinWhileShowingSpinner()
+    {
 
 
         return false;
 
     }
 
-    public bool PausingWhileShowingCountdownTimer(){
+    public bool PausingWhileShowingCountdownTimer()
+    {
 
-        return  false;
-    
+        return false;
+
     }
 
 
