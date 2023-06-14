@@ -24,12 +24,20 @@ class Program
                 case 1:
                     BreathingActivity B1 = new BreathingActivity();
                     int input;
-                    B1.SetName("Breathing Activity.");
-                    B1.SetDescription("This Activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
-                    Console.Write("Please enter the time : ");
+                    B1.SetName("Welcome to the Breathing Activity.");
+
+                    B1.SetDescription("This Activity will help you relax by walking your through breathing in and out slowly. \nClear your mind and focus on your breathing.");
+                    Console.WriteLine(B1.DisplayStartingMessage());
+                    Console.WriteLine();
+                    Console.Write("How long, in seconds, would you like for your session ? ");
                     input = Int32.Parse(Console.ReadLine());
                     B1.SetDuration(input);
-                    Console.WriteLine(B1.DisplayStartingMessage());
+                    Console.Clear();
+                    B1.SetBreathingMessage("Get Ready ...");
+                    Console.WriteLine(B1.DisplayBreathinMessage());
+                    B1.PausingWhileShowingCountdownTimer();
+                    B1.PausingWhileShowingPeriods();
+
                     break;
 
                 case 2:

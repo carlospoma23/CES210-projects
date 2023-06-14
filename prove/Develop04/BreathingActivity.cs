@@ -19,7 +19,10 @@ public class BreathingActivity : Activity
         _count = count;
     }
 
-
+    public void SetBreathingMessage(string message)
+    {
+        _breathingMessage = message;
+    }
 
     //Setting constructors
     //first constructor 
@@ -44,16 +47,8 @@ public class BreathingActivity : Activity
 
     //Setting methods
 
-    public string DisplayBreathinMessage(bool status)
+    public string DisplayBreathinMessage()
     {
-        if (status == true)
-        {
-            _breathingMessage = _breathInMessage;
-        }
-        else
-        {
-            _breathingMessage = _breathOutMessage;
-        }
         return _breathingMessage;
     }
 

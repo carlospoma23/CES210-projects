@@ -72,8 +72,8 @@ public class Activity
 
     public string DisplayStartingMessage()
     {
-
-        return $"{_name}\n{_description} {_duration}";
+        Console.Clear();
+        return $"\n{_name}\n\n{_description}";
 
     }
     public string DisplayEndingMessage()
@@ -84,18 +84,47 @@ public class Activity
 
 
 
-    public bool PausinWhileShowingSpinner()
+    public void PausinWhileShowingSpinner()
     {
 
+        List<string> animationsStrings = new List<string>();
+        animationsStrings.Add("|");
+        animationsStrings.Add("/");
+        animationsStrings.Add("-");
+        animationsStrings.Add("\\");
+        animationsStrings.Add("|");
+        animationsStrings.Add("/");
+        animationsStrings.Add("-");
+        animationsStrings.Add("\\");
 
-        return false;
+        foreach (string s in animationsStrings)
+        {
+            Console.Write(s);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
 
     }
 
-    public bool PausingWhileShowingCountdownTimer()
+    public void PausingWhileShowingCountdownTimer()
     {
+        for (int i = 5; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
 
-        return false;
+    }
+
+    public void PausingWhileShowingPeriods()
+    {
+        for (int i = 5; i > 0; i--)
+        {
+            Console.Write(".");
+            Thread.Sleep(1000);
+
+        }
 
     }
 
